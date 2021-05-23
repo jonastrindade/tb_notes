@@ -23,11 +23,11 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def destroy
-    @note = Note.find(note_params[:id])
+    @note = Note.find(params[:id])
     if @note.destroy
-      render json: "Anotação destruída com sucesso"
+      render json: { message: "Anotação destruída com sucesso" }
     else
-      render json: "Algum problema ao destruír a anotação"
+      render json: { message: "Algum problema ao destruír a anotação" }
     end
   end
   
