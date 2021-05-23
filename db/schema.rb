@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20210523155610) do
     t.text "title"
     t.text "note"
     t.datetime "date"
-    t.integer "prority"
+    t.integer "priority"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end

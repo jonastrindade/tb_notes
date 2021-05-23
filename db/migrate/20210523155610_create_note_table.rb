@@ -5,7 +5,7 @@ class CreateNoteTable < ActiveRecord::Migration[5.1]
       t.text :title
       t.text :note
       t.datetime :date
-      t.integer :prority
+      t.integer :priority
       t.references :user
     end
   end
