@@ -1,3 +1,11 @@
 <div class="container">
-  <h1>Testes<h1>
+  <div class="row" id="indexNotesTable">
+  </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    currentUserId = "<%= current_user.id %>";
+    doNotesHtml(currentUserId);
+  });
+</script>
