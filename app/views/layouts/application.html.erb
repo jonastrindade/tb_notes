@@ -10,7 +10,9 @@
 
   <body>
     <%= render 'layouts/nav' %>
-
-    <%= yield %>
+    <div class="bg-white-smoke">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

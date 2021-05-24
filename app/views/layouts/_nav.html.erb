@@ -1,6 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="">Anotações</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-purple">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <h2 class="text-white" href="">Anotações</h2>
+      </li>
+    </ul>
+  </div>
+  <ul class="navbar-nav margin-right-20">
+    <li class="nav-item active">
+      <% if user_signed_in? %>
+        <li>
+          <%= button_to('Logout', destroy_user_session_path, method: :delete, class: "btn bg-white text-purple") %>        
+        </li>
+      <% end %>
+    </li>
+  </ul>
 </nav>
