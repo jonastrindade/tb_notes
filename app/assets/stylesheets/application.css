@@ -32,6 +32,11 @@
   background-color: #ededed;
 }
 
+.btn-outline-purple{
+  color:#eb3170;
+  border-color:#eb3170
+}
+
 .btn-purple {
   background-color: #eb3170;
 }

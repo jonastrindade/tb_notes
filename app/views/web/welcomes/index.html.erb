@@ -1,11 +1,27 @@
-<div class="container">
-  <div class="row" id="indexNotesTable">
+<div class="row mt-4">
+  <div class="col-10">
+    <div class="row" id="searchInput">
+    </div>
   </div>
+  <div class="col-2">
+    <div class="" id="createButton">
+    </div>
+  </div>
+</div>
+<div class="row" id="indexNotesTable">
+</div>
+<div class="row" id="createNoteForm">
 </div>
 
 <script>
   $(document).ready(function() {
     currentUserId = "<%= current_user.id %>";
-    doNotesHtml(currentUserId);
+    doSearchInputHtml();
+    doCreateNoteButtonHtml();
+    doNotesHtml();
+  });
+
+  $( "#searchNote" ).click(function() {
+    searchTitles();
   });
 </script>
