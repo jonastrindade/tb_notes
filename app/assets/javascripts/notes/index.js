@@ -11,7 +11,7 @@ function fetchNotesIndex() {
     data: { note: { user_id: currentUserId } },
     success: function (response) {
       notes = response;
-      console.log(notes)
+      // console.log(notes)
       doTableHtml();
     },
     error: function (xhr) {
@@ -28,6 +28,8 @@ function doTableHtml() {
   html += '<th scope="col">Título</th>';
   html += '<th scope="col">Data</th>';
   html += '<th scope="col">Prioridade</th>';
+  html += '<th scope="col">Editar</th>';
+  html += '<th scope="col">Apagar</th>';
   html += '</tr>';
   html += '</thead>';
   html += '<tbody>';
@@ -37,6 +39,16 @@ function doTableHtml() {
     html += '<td>' + note.title + '</td>';
     html += '<td>' + note.date + '</td>';
     html += '<td>' + note.priority + '</td>';
+    html += '<td>'
+    html += '<button type="button" id="' + note.id + '" class="update-button btn btn-outline-purple btn-sm d-flex justify-content-center align-content-between">'
+    html += '<span id="' + note.id + '" class="material-icons icon-purple">edit</span>';
+    html += '</button>'
+    html += '</td>'
+    html += '<td>'
+    html += '<button type="button" id="' + note.id + '" class="delete-button btn btn-outline-red btn-sm d-flex justify-content-center align-content-between">'
+    html += '<span id="' + note.id + '" class="material-icons icon-red">delete</span>';
+    html += '</button>'
+    html += '</td>'
     html += '</tr>';
   });
   html += '</tbody>';
@@ -49,6 +61,14 @@ function doTableHtml() {
     $("#table tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
+  });
+
+  $( ".update-button" ).on("click", function() {
+    doUpdateHtml(event.target.id);
+  });
+
+  $( ".delete-button" ).on("click", function() {
+    deleteNote(event.target.id);
   });
 }
 
