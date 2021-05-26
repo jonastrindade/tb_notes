@@ -1,0 +1,17 @@
+.btn-white {
+  background-color: #ededed;
+}
+
+.btn-purple {
+  background-color: #eb3170;
+}
+
+.btn-outline-purple{
+  color:#eb3170;
+  border-color:#eb3170
+}
+
+.btn-outline-red{
+  color: #ef0418;
+  border-color: #ef0418
+}

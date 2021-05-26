@@ -6,7 +6,7 @@ function doFormHtml() {
   html = '<form>';
   html += '<div class="form-group mt-4">';
   html += '<label for="exampleFormControlInput1">Título</label>';
-  html += '<input type="title" class="form-control" id="title" placeholder="">';
+  html += '<input required type="title" class="form-control" id="title" placeholder="">';
   html += '</div>';
   html += '<div class="form-group mt-2">';
   html += '<label for="priority">Prioridade</label>';
@@ -18,7 +18,7 @@ function doFormHtml() {
   html += '</div>';
   html += '<div class="form-group mt-2">';
   html += '<label for="date" class="col-form-label">Data</label>';
-  html += '<input class="form-control" type="date" value="2021-05-24" id="date">';
+  html += '<input required class="form-control" type="date" value="2021-05-24" id="date">';
   html += '</div>';
   html += '<div class="form-group mt-2">';
   html += '<label for="note">Anotações</label>';
@@ -69,7 +69,7 @@ function doUpdateHtml(noteId) {
   html = '<form>';
   html += '<div class="form-group mt-4">';
   html += '<label for="exampleFormControlInput1">Título</label>';
-  html += '<input type="title" class="form-control" id="title" placeholder="">';
+  html += '<input required type="title" class="form-control" id="title" placeholder="">';
   html += '</div>';
   html += '<div class="form-group mt-2">';
   html += '<label for="priority">Prioridade</label>';
@@ -81,7 +81,7 @@ function doUpdateHtml(noteId) {
   html += '</div>';
   html += '<div class="form-group mt-2">';
   html += '<label for="date" class="col-form-label">Data</label>';
-  html += '<input class="form-control" type="date" value="2021-05-24" id="date">';
+  html += '<input required class="form-control" type="date" value="2021-05-24" id="date">';
   html += '</div>';
   html += '<div class="form-group mt-2">';
   html += '<label for="note">Anotações</label>';
@@ -122,20 +122,6 @@ function doUpdateHtml(noteId) {
   });
 }
 
-function deleteNote(noteId) {
-  $.ajax({
-    url: '/api/v1/notes/' + noteId,
-    method: 'DELETE',
-    success: function (response) {
-      notes = response;
-      doIndexHtml();
-    },
-    error: function (xhr) {
-      console.log("Erro ao apagar anotação");
-    }
-  });
-}
-
 function doJsonData() {
   title = $( "input#title" ).val();
   priority = $( "select#priority" ).val().toLowerCase();
@@ -160,11 +146,24 @@ function requestSave(data) {
     dataType: 'json',
     data: { note: data},
     success: function (response) {
-      notes = response;
       doIndexHtml();
     },
     error: function (xhr) {
       console.log("Erro ao criar/atualizar anotação");
+    }
+  });
+}
+
+function deleteNote(noteId) {
+  $.ajax({
+    url: '/api/v1/notes/' + noteId,
+    method: 'DELETE',
+    success: function (response) {
+      notes = response;
+      doIndexHtml();
+    },
+    error: function (xhr) {
+      console.log("Erro ao apagar anotação");
     }
   });
 }

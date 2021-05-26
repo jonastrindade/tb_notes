@@ -26,35 +26,6 @@
 
 .bg-white-smoke {
   background-color: #f5f5f5;
-  min-height: 90%;
-}
-
-.btn-white {
-  background-color: #ededed;
-}
-
-.btn-outline-purple{
-  color:#eb3170;
-  border-color:#eb3170
-}
-
-.btn-outline-red{
-  color: #ef0418;
-  border-color: #ef0418
-}
-
-.icon-purple{
-  color:#eb3170;
-  border-color:#eb3170
-}
-
-.icon-red{
-  color: #ef0418;
-  border-color: #ef0418
-}
-
-.btn-purple {
-  background-color: #eb3170;
 }
 
 .text-white {
@@ -63,17 +34,6 @@
 
 .text-purple {
   color: #eb3170;
-}
-
-.margin-right-20 {
-  margin-right: 20px;
-}
-
-.card{
-  height: 370px;
-  margin-top: 50px;
-  margin-bottom: auto;
-  width: 400px;
 }
 
 html {

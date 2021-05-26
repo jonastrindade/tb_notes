@@ -11,7 +11,6 @@ function fetchNotesIndex() {
     data: { note: { user_id: currentUserId } },
     success: function (response) {
       notes = response;
-      // console.log(notes)
       doTableHtml();
     },
     error: function (xhr) {
@@ -35,10 +34,14 @@ function doTableHtml() {
   html += '<tbody>';
   html += '<tr>';
   $.each(notes, function (i, note) {
+    date = note.date.split("T")[0].split("-")
+    datePretty = date[2] + "/" + date[1] + "/" + date[0]
+    priority = note.priority.charAt(0).toUpperCase() + note.priority.slice(1) 
+
     html += '<th scope="row"></th>';
     html += '<td>' + note.title + '</td>';
-    html += '<td>' + note.date + '</td>';
-    html += '<td>' + note.priority + '</td>';
+    html += '<td>' + datePretty + '</td>';
+    html += '<td>' + priority + '</td>';
     html += '<td>'
     html += '<button type="button" id="' + note.id + '" class="update-button btn btn-outline-purple btn-sm d-flex justify-content-center align-content-between">'
     html += '<span id="' + note.id + '" class="material-icons icon-purple">edit</span>';
